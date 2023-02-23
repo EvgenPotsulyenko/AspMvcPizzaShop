@@ -1,0 +1,32 @@
+﻿@model AspMvcPizzaShop.Models.Order
+
+<<h2>Создание своей Пиццы</h2>
+<form asp-action="CreateOrderFunc" asp-controller="home" method="post" enctype="multipart/form-data">
+    <p>
+        <label asp-for="Name">Название</label><br />
+        <input type="text" asp-for="Name"/>
+    </p>
+    <p>
+        <label asp-for="Size">Размер</label><br />
+        <input type="text" asp-for="Size"/>1
+    </p>
+    <p>
+        <label asp-for="Ingred.Ananas">Есть ли ананас</label><br />
+        <input type="checkbox"  asp-for="Ingred.Ananas"/>
+    </p>
+    <p>
+        <label asp-for="Ingred.Sausage">Есть ли колбаса</label><br />
+        <input type="checkbox"  asp-for="Ingred.Sausage"/>
+    </p>
+    <p>
+        <label asp-for="Ingred.DoubleCheese">Двойной сыр</label><br />
+        <input type="checkbox"  asp-for="Ingred.DoubleCheese"/>
+    </p>
+     <p>
+        <label asp-for="Ingred.Mushrooms">Есть ли грибы</label><br />
+        <input type="checkbox"  asp-for="Ingred.Mushrooms"/>
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>

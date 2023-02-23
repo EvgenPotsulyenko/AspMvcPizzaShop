@@ -1,0 +1,42 @@
+﻿@model AspMvcPizzaShop.Models.ViewModel
+
+<p><a asp-action="Create">Добавить пиццу(для администратора)</a></p>
+<p><a asp-action="CreateClient">Создать свою пиццу(для клиента)</a></p>
+
+<table class="table">
+<tr><th>Картинка</th> <th>Название </th> <th>Размер </th> <th>Цена </th> <th>Масса </th> <th>Колбаса </th> <th>Ананас </th> <th>Двойной сыр </th> <th>Грибы </th> </tr>
+    @foreach (var item in Model.Pizzas)
+    {
+        <tr>
+            @if (item.Img != null)
+            {
+            <td><img style='width:80px; height:60px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Img))" /></td>
+            }
+            <td>@item.Name</td>
+            <td>@item.Size</td> 
+            <td>@item.Price</td>
+            <td>@item.Weight</td>
+            <td>@item.Ingred.Sausage</td>
+            <td>@item.Ingred.Ananas</td>
+            <td>@item.Ingred.DoubleCheese</td>
+            <td>@item.Ingred.Mushrooms</td>
+        </tr>
+    }
+</table>
+
+<h1>Мои заказы</h1>
+<table class="table">
+<tr> <th>Название</th> <th>Размер</th> <th>Колбаса</th> <th>Ананас</th> <th>Двойной сыр</th> <th>Грибы</th><th>Цена</th> </tr>
+    @foreach (var item in Model.Orders)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Size</td>             
+            <td>@item.Ingred.Sausage</td>
+            <td>@item.Ingred.Ananas</td>
+            <td>@item.Ingred.DoubleCheese</td>
+            <td>@item.Ingred.Mushrooms</td>
+            <td>@item.Price</td>
+        </tr>
+    }
+</table>
